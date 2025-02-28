@@ -1,4 +1,4 @@
 [submodule "package"]
 	path = package
 	url = https://github.com/bracketed/jova.js
-	branch = main
+	branch = master
