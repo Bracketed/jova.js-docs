@@ -38,6 +38,12 @@ const config: Config = {
 			},
 		],
 	],
+	markdown: {
+		format: 'detect',
+	},
+	future: {
+		experimental_faster: true,
+	},
 
 	// GitHub pages deployment config.
 	// If you aren't using GitHub pages, you don't need these.
