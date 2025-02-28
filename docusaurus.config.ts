@@ -72,7 +72,7 @@ const config: Config = {
 			'docusaurus-plugin-typedoc',
 			{
 				...baseTypedocOptions,
-				id: 'framework',
+				id: 'jova',
 				entryPoints: [
 					'./package/src/index.ts',
 					'./package/src/types/index.ts',

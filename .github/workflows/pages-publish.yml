@@ -24,6 +24,7 @@ jobs:
                           run: yarn install
 
                         - name: Install dependencies
+                          working-directory: ./package
                           run: yarn install
 
                         - name: Build Docusaurus site
