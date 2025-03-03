@@ -84,6 +84,7 @@ const config: Config = {
 					'./package/src/types/index.ts',
 					'./package/src/decorators/index.ts',
 				],
+				categorizeByGroup: true,
 				tsconfig: './package/tsconfig.json',
 				readme: './package/README.md',
 				out: 'docs/Documentation',
