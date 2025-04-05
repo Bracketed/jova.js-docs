@@ -1,0 +1,204 @@
+{
+	"$schema": "http://json-schema.org/draft-07/schema#",
+	"$ref": "#/definitions/JovaJsonRCOptions",
+	"$id": "https://jova.js.org/schemas/.jovarc.json",
+	"definitions": {
+		"JovaJsonRCOptions": {
+			"additionalProperties": false,
+			"description": "Jova Server options for JSON-based resource configs.",
+			"properties": {
+				"$schema": {
+					"description": "The schema to verify this document against.",
+					"type": "string"
+				},
+				"basePath": {
+					"description": "An optional base path for all of your routes to begin at.",
+					"type": "string"
+				},
+				"cors": {
+					"additionalProperties": false,
+					"description": "Enable cors and set up certain values for the cors middleware.",
+					"properties": {
+						"allowedHeaders": {
+							"anyOf": [
+								{
+									"type": "string"
+								},
+								{
+									"items": {
+										"type": "string"
+									},
+									"type": "array"
+								}
+							],
+							"description": "Defines the headers that are allowed in the request.\r\nThis corresponds to the Access-Control-Allow-Headers header.\r\nIt can be:\r\n- A comma-separated string (e.g., 'Content-Type, Authorization')\r\n- An array of strings (e.g., ['Content-Type', 'Authorization'])\r\n- Undefined to allow all headers requested by the client"
+						},
+						"credentials": {
+							"description": "Indicates whether the request can include user credentials like cookies, HTTP authentication, or client-side SSL certificates.\r\nThis sets the Access-Control-Allow-Credentials header.\r\n- If true, credentials are allowed\r\n- If false or undefined, credentials are not allowed",
+							"type": "boolean"
+						},
+						"exposedHeaders": {
+							"anyOf": [
+								{
+									"type": "string"
+								},
+								{
+									"items": {
+										"type": "string"
+									},
+									"type": "array"
+								}
+							],
+							"description": "Lists the headers exposed to the browser.\r\nThis sets the Access-Control-Expose-Headers header.\r\nThis is used to allow the client to read certain headers from the response.\r\nIt can be:\r\n- A comma-separated string (e.g., 'X-Custom-Header')\r\n- An array of strings (e.g., ['X-Custom-Header'])\r\n- Undefined to expose no additional headers"
+						},
+						"maxAge": {
+							"description": "Specifies how long (in seconds) the results of a preflight request can be cached.\r\nThis sets the Access-Control-Max-Age header.\r\n- A number representing the cache duration in seconds\r\n- Undefined to not specify a max age",
+							"type": "number"
+						},
+						"methods": {
+							"anyOf": [
+								{
+									"type": "string"
+								},
+								{
+									"items": {
+										"type": "string"
+									},
+									"type": "array"
+								}
+							],
+							"description": "Specifies the HTTP methods allowed when accessing the resource.\r\nThis sets the Access-Control-Allow-Methods header.\r\nIt can be:\r\n- A comma-separated string (e.g., 'GET, POST')\r\n- An array of strings (e.g., ['GET', 'POST'])\r\n- Undefined to allow all standard methods"
+						},
+						"optionsSuccessStatus": {
+							"description": "Sets the HTTP status code sent for successful OPTIONS preflight requests.\r\n- Typically set to 204 (No Content)\r\n- Can be customized for legacy browsers that require a different status code (e.g., 200)",
+							"type": "number"
+						},
+						"origin": {
+							"anyOf": [
+								{
+									"type": "boolean"
+								},
+								{
+									"type": "string"
+								},
+								{
+									"format": "regex",
+									"type": "string"
+								},
+								{
+									"items": {
+										"anyOf": [
+											{
+												"type": "boolean"
+											},
+											{
+												"type": "string"
+											},
+											{
+												"format": "regex",
+												"type": "string"
+											}
+										]
+									},
+									"type": "array"
+								}
+							],
+							"default": "*",
+							"description": "Configures the Access-Control-Allow-Origin CORS header.\r\nThis determines which origins are allowed to access the resource.\r\nIt can be:\r\n- A string representing a specific origin (e.g., 'https://example.com')\r\n- An asterisk (*) to allow all origins\r\n- A function for custom logic to determine the allowed origin\r\n- Undefined to default to '*'"
+						},
+						"preflightContinue": {
+							"description": "Determines if the middleware should pass the preflight request to the next handler.\r\n- If true, the next middleware will handle the OPTIONS request\r\n- If false or undefined, the middleware responds directly to the preflight request",
+							"type": "boolean"
+						}
+					},
+					"type": "object"
+				},
+				"customHeaders": {
+					"description": "Custom headers to be applied to outgoing responses, this is a middleware of optional use but the headers put in here are read-only at runtime until the request is received by a request handler.",
+					"items": {
+						"additionalProperties": false,
+						"description": "Headings to be added to any request made into the Jova.js server.",
+						"properties": {
+							"header": {
+								"description": "The name of the header.",
+								"type": "string"
+							},
+							"value": {
+								"description": "The value of the header."
+							}
+						},
+						"required": ["header", "value"],
+						"type": "object"
+					},
+					"type": "array"
+				},
+				"customOptions": {
+					"description": "Custom options from express to be set upon the server starting, similar to `settings` but this sets any value unlike `settings` which only allows settings from the `JovaSettingsOptions` enum.",
+					"items": {
+						"additionalProperties": false,
+						"description": "Custom express options to set when the Jova.js server starts.",
+						"properties": {
+							"name": {
+								"description": "The name of the setting.",
+								"type": "string"
+							},
+							"value": {
+								"description": "The value to set it to.",
+								"type": ["string", "number", "boolean"]
+							}
+						},
+						"required": ["name", "value"],
+						"type": "object"
+					},
+					"type": "array"
+				},
+				"paths": {
+					"additionalProperties": false,
+					"description": "Deploy example middlewares and routes when running the Jova.js Server.",
+					"properties": {
+						"events": {
+							"description": "Folder where your event listeners are contained.",
+							"type": "string"
+						},
+						"middlewares": {
+							"description": "Folder where your middlewares are contained.",
+							"type": "string"
+						},
+						"routes": {
+							"description": "Folder where your routes are contained.",
+							"type": "string"
+						}
+					},
+					"type": "object"
+				},
+				"port": {
+					"description": "The port for the Jova Server to run on.",
+					"type": ["string", "number"]
+				},
+				"settings": {
+					"additionalProperties": false,
+					"description": "Custom settings from express to be enabled or disabled upon the server starting.",
+					"properties": {
+						"disabled": {
+							"description": "Settings to disable.\r\n\r\nAllows boolean-based settings only.",
+							"items": {
+								"type": "string"
+							},
+							"type": "array"
+						},
+						"enabled": {
+							"description": "Settings to enable.\r\n\r\nAllows boolean-based settings only.",
+							"items": {
+								"type": "string"
+							},
+							"type": "array"
+						}
+					},
+					"type": "object"
+				}
+			},
+			"type": "object"
+		}
+	}
+}
+
