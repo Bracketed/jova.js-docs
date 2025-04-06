@@ -125,11 +125,6 @@ const config: Config = {
 				{ to: '/docs/Documentation', label: 'Documentation', position: 'left' },
 				{ to: '/docs/Guide', label: 'Guide', position: 'left' },
 				{
-					href: 'https://github.com/bracketed/jova.js/wiki',
-					label: 'GitHub Wiki',
-					position: 'left',
-				},
-				{
 					href: 'https://github.com/bracketed/jova.js',
 					label: 'GitHub',
 					position: 'right',

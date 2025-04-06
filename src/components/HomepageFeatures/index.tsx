@@ -27,7 +27,6 @@ function Feature({ title, description }: FeatureItem) {
 export default function HomepageFeatures(): JSX.Element {
 	const [downloads, setDownloads] = useState<string>('N/A');
 	const [npmData, setNpmData] = useState<any | undefined>(undefined);
-	const [githubData, setGithubData] = useState<any | undefined>(undefined);
 	const [contributors, setContributors] = useState<string | number>('N/A');
 	const [forks, setForks] = useState<string | number>('N/A');
 	const [stars, setStars] = useState<string | number>('N/A');
@@ -72,14 +71,11 @@ export default function HomepageFeatures(): JSX.Element {
 			})
 			.catch(() => setNpmData(undefined));
 
-		axios.get('https://api.github.com/repos/bracketed/jova.js')
-			.then((d) => {
-				setGithubData(d.data);
-				setContributorsState(d.data);
-				setStars(d.data.stargazers_count);
-				setForks(d.data.forks_count);
-			})
-			.catch(() => setGithubData(undefined));
+		axios.get('https://api.github.com/repos/bracketed/jova.js').then((d) => {
+			setContributorsState(d.data);
+			setStars(d.data.stargazers_count);
+			setForks(d.data.forks_count);
+		});
 	}, []);
 
 	const FeatureList: FeatureItem[] = [
@@ -116,7 +112,8 @@ export default function HomepageFeatures(): JSX.Element {
 					<li>Simple structure</li>
 					<li>Fully Typed</li>
 					<li>(Almost) Fully Documented</li>
-					<li>Up-to-date with Express 5</li>
+					<li>(Almost) Decorator supported</li>
+					<li>(Almost) Resource Config supported</li>
 				</>
 			),
 		},
@@ -150,4 +147,3 @@ export default function HomepageFeatures(): JSX.Element {
 		</section>
 	);
 }
-
