@@ -5720,6 +5720,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/caniuse-lite@npm:^1":
+  version: 1.0.5
+  resolution: "@types/caniuse-lite@npm:1.0.5"
+  checksum: 10c0/510f06241bc8274dbf41abf7658e2a72aec519f120b1ad89552a1d76d52a96fd549318d63120c89190d48ed831896b444d7ce773d1c042627cae504cf9a65023
+  languageName: node
+  linkType: hard
+
 "@types/connect-history-api-fallback@npm:^1.3.5":
   version: 1.5.4
   resolution: "@types/connect-history-api-fallback@npm:1.5.4"
@@ -7281,10 +7288,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"caniuse-lite@npm:^1.0.0, caniuse-lite@npm:^1.0.30001616, caniuse-lite@npm:^1.0.30001646, caniuse-lite@npm:^1.0.30001688":
-  version: 1.0.30001701
-  resolution: "caniuse-lite@npm:1.0.30001701"
-  checksum: 10c0/a814bd4dd8b49645ca51bc6ee42120660a36394bb54eb6084801d3f2bbb9471e5e1a9a8a25f44f83086a032d46e66b33031e2aa345f699b90a7e84a9836b819c
+"caniuse-lite@npm:^1.0.0, caniuse-lite@npm:^1.0.30001616, caniuse-lite@npm:^1.0.30001646, caniuse-lite@npm:^1.0.30001688, caniuse-lite@npm:^1.0.30001712":
+  version: 1.0.30001712
+  resolution: "caniuse-lite@npm:1.0.30001712"
+  checksum: 10c0/b3df8bdcc3335969380c2e47acb36c89bfc7f8fb4ef7ee2a5380e30ba46aa69e9d411654bc29894a06c201a1d60d490ab9b92787f3b66d7a7a38d71360e68215
   languageName: node
   linkType: hard
 
@@ -11247,11 +11254,13 @@ __metadata:
     "@mdx-js/react": "npm:^3.1.0"
     "@sapphire/docusaurus-plugin-npm2yarn2pnpm": "npm:^2.0.2"
     "@sapphire/docusaurus-plugin-ts2esm2cjs": "npm:^2.0.2"
+    "@types/caniuse-lite": "npm:^1"
     "@types/gh-pages": "npm:^6.1.0"
     "@types/node": "npm:^22.14.0"
     "@types/react": "npm:^19.1.0"
     axios: "npm:^1.8.4"
     browserslist: "npm:^4.24.4"
+    caniuse-lite: "npm:^1.0.30001712"
     clsx: "npm:^2.1.1"
     docusaurus-plugin-typedoc: "npm:^1.3.0"
     gh-pages: "npm:^6.3.0"
